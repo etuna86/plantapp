@@ -2,6 +2,7 @@ export const colors = {
   primary: 'rgba(40, 175, 110, 1)',
   primary024: 'rgba(40, 175, 110, 0.24)',
   primary0: 'rgba(40, 175, 110, 0)',
+  green018:'rgba(41, 187, 137, 0.18)',
   secondary: ' rgba(16, 30, 23, 1)',
   black: 'rgba(19, 35, 27, 1)',
   black025: ' rgba(19, 35, 27, 0.25)',
@@ -24,5 +25,4 @@ export const colors = {
   arrow:'rgba(208, 176, 112, 1)',
   premiumBg: 'rgba(36, 32, 26, 1)',
   text: '#000000',
-  // diğer renkler ...
 };

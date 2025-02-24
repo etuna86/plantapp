@@ -1,38 +1,40 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text,FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { styles } from './styles';
-import { Features } from '../../../types/featuresTypes'; // Features tipini içe aktar
+import { Questions } from '../../../types/questionsTypes';
 
-
-// 📌 Props Tipi Tanımla
 interface PaSliderProps {
-  features: Features[];
+  questions: Questions[];
 }
 
-const PaFeaturesSlider: React.FC<PaSliderProps> = ({ features }) => {
-  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
-  const [feature, setFeature] = useState<Features[]>([...features, ...features]);
-  const flatListRef = useRef<FlatList<Features>>(null);
+const PaQuestionsSlider: React.FC<PaSliderProps> = ({ questions }) => {
+  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
+  const [question, setQuestion] = useState<Questions[]>([...questions, ...questions]);
+  const flatListRef = useRef<FlatList<Questions>>(null);
 
-  // 📌 Sonsuz döngü için veriyi iki kez çoğalt
-  const loopedFeatures = [...features, ...features];
-
-  // 📌 Liste sonuna gelince başa dön
   const handleScrollEnd = () => {
-    setFeature((prev) => [...prev, ...features]);
+    setQuestion((prev) => [...prev, ...questions]);
   };
 
-  const renderItem = ({ item }: { item: Features }) => {
-    const isSelected = item.id === selectedFeature;
+  useEffect(() => {
+    if (questions.length > 0) {
+      setQuestion([...questions, ...questions]);
+    }
+  }, [questions]);
+
+  const renderItem = ({ item }: { item: Questions }) => {
+    const isSelected = item.id === selectedQuestion;
 
     return (
       <TouchableOpacity
-        style={[styles.featureItem, isSelected && styles.selectedFeature]}
-        onPress={() => setSelectedFeature(item.id)}
+        style={[styles.featureItem, isSelected && styles.selectedQuestion]}
+        onPress={() => setSelectedQuestion(item.id)}
       >
-        <Image source={item.image} style={styles.featureImage} />
-        <Text style={styles.featureTitle}>{item.name}</Text>
-        <Text style={styles.featureText}>{item.subtitle}</Text>
+        <ImageBackground source={{ uri: item.image_uri }} style={styles.featureImage} resizeMode="cover">
+          <View style={styles.overlay}>
+            <Text style={styles.featureTitle}>{item.title}</Text>
+          </View>
+        </ImageBackground>
       </TouchableOpacity>
     );
   };
@@ -41,17 +43,17 @@ const PaFeaturesSlider: React.FC<PaSliderProps> = ({ features }) => {
     <View style={styles.container}>
       <FlatList
         ref={flatListRef}
-        data={feature}
+        data={question}
         renderItem={renderItem}
         keyExtractor={(item, index) => `${item.id}-${index}`}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.listContainer}
         onEndReached={handleScrollEnd}
-        onEndReachedThreshold={0.1} 
+        onEndReachedThreshold={0.1}
       />
     </View>
   );
 };
 
-export default PaFeaturesSlider;
+export default PaQuestionsSlider;
