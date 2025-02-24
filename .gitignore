@@ -1,74 +1,84 @@
-# OSX
-#
-.DS_Store
+# Node.js bağımlılıkları
+node_modules/
+npm-debug.log*
+yarn-error.log
+package-lock.json
+yarn.lock
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-**/.xcode.env.local
+# React Native Derleme Dosyaları
+android/app/build/
+android/build/
+ios/Pods/
+ios/build/
+ios/*.xcodeproj/project.xcworkspace/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/xcshareddata/
+ios/.expo/
 
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
+# Android / iOS Çalışma Alanı Dosyaları
+*.gradle
 *.iml
 *.hprof
-.cxx/
 *.keystore
-!debug.keystore
+*.DS_Store
+android/.idea/
+ios/.idea/
 
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
+# Debug / Log Dosyaları
+*.log
+*.lock
+debug.log
+*.swp
+*.swo
+*.bak
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# Çalışma Ortamı Dosyaları
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+.babelrc
+.eslintcache
 
-**/fastlane/report.xml
-**/fastlane/Preview.html
-**/fastlane/screenshots
-**/fastlane/test_output
+# Metro Bundler Önbellek
+.expo/
+.expo-shared/
+index.bundle
+index.android.bundle
+index.ios.bundle
+*.map
 
-# Bundle artifact
-*.jsbundle
+# CocoaPods (iOS bağımlılık yöneticisi)
+ios/Pods/
+ios/Podfile.lock
 
-# Ruby / CocoaPods
-**/Pods/
-/vendor/bundle/
+# NPM ve Yarn Önbellek
+.npm/
+.yarn/
 
-# Temporary files created by Metro to check the health of the file watcher
-.metro-health-check*
+# Firebase / Google Services JSON ve Plist Dosyaları
+android/app/google-services.json
+ios/GoogleService-Info.plist
 
-# testing
-/coverage
+# Test ve Önbellek Dosyaları
+coverage/
+jest/
+cypress/
+cypress/screenshots/
+cypress/videos/
 
-# Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# Git Önbelleği ve Anlık Dosyalar
+.git/
+.gitkeep
+*.bak
+*.swp
+*.swo
+*.lock
+
+# Mac OS ve Linux Sistem Dosyaları
+.DS_Store
+Thumbs.db
+
+*.o
+*.log
