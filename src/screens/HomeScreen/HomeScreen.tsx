@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ImageBackground, Image, ScrollView } from 'react-native';
+import { View, Text, ImageBackground, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useLoading } from '../../redux/slices/loadingSlice';
 import { getQuestions } from '../../services/questionsServices';
 import { Questions } from '../../types/questionsTypes';
@@ -55,7 +55,10 @@ const HomeScreen: React.FC = () => {
     }
     hideLoading();
   };
-
+  const selectCategoryId = async (id: number): Promise<void> => {
+    console.log("category id: ", id);
+  };
+  
   const groupedCategories = chunkArray(categories, 2);
 
   return (
@@ -116,17 +119,22 @@ const HomeScreen: React.FC = () => {
               {groupedCategories.map((row, rowIndex) => (
                 <View key={rowIndex} style={styles.row}>
                   {row.map((item) => (
-                    <View key={item.id} style={styles.categoryBox}>
-                      <ImageBackground
-                        source={{ uri: item.image.url }}
-                        style={styles.categoryImage}
-                        resizeMode="cover"
-                      >
-                        <View style={styles.categoryOverlay}>
-                          <Text style={styles.categoryTitle}>{item.title}</Text>
-                        </View>
-                      </ImageBackground>
-                    </View>
+                    <TouchableOpacity
+                      key={item.id} style={styles.categoryBox}
+                      onPress={() => selectCategoryId(item.id)}
+                    >
+                      <View >
+                        <ImageBackground
+                          source={{ uri: item.image.url }}
+                          style={styles.categoryImage}
+                          resizeMode="cover"
+                        >
+                          <View style={styles.categoryOverlay}>
+                            <Text style={styles.categoryTitle}>{item.title}</Text>
+                          </View>
+                        </ImageBackground>
+                      </View>
+                    </TouchableOpacity>
                   ))}
                   {row.length < 2 && <View style={[styles.categoryBox, styles.hiddenBox]} />}
                 </View>
