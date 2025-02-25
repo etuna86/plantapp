@@ -1,6 +1,7 @@
 export const colors = {
   primary: 'rgba(40, 175, 110, 1)',
   primary024: 'rgba(40, 175, 110, 0.24)',
+  primary2: 'rgba(44, 204, 128,1)',
   primary0: 'rgba(40, 175, 110, 0)',
   green018:'rgba(41, 187, 137, 0.18)',
   secondary: ' rgba(16, 30, 23, 1)',
