@@ -69,7 +69,35 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     right: standartPadding,
     top: 55,
-    justifyContent:'center',
-    alignItems:'center',
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  termsContainer: {
+    padding: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  termsText: {
+    fontSize: 9,
+    fontWeight: 300,
+    textAlign: 'center',
+    fontFamily: "Rubik-Light",
+    lineHeight: 15,
+    letterSpacing: 0.07,
+    color: colors.white05,
+    width: '100%'
+  },
+  termsLinksContainer: {
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:5,
+  },
+  link: {
+    fontSize: 11,
+    fontWeight: 400,
+    textAlign: 'center',
+    fontFamily: "Rubik-Regular",
+    color: colors.white05
+  },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Linking } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
 import { styles } from './styles';
@@ -32,6 +32,10 @@ const ChooseMembershipScreen: React.FC<ChooseMembershipProps> = ({ navigation })
 
   const handleConfirm = () => {
     navigation.navigate('BottomTabs');
+  };
+
+  const openLink = (url: string) => {
+    Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
   };
 
   return (
@@ -81,6 +85,32 @@ const ChooseMembershipScreen: React.FC<ChooseMembershipProps> = ({ navigation })
       </View>
       <View style={styles.bottom}>
         <PaButton title='Try free for 3 days' onPress={handleConfirm} />
+        <View style={styles.termsContainer}>
+          <Text style={styles.termsText}>
+            After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable
+          </Text>
+          <View style={styles.termsLinksContainer}>
+            <Text
+              style={styles.link}
+              onPress={() => openLink('https://your-terms-url.com')}
+            >
+              Terms{'  '}
+            </Text>
+            <Text
+              style={styles.link}
+              onPress={() => openLink('https://your-privacy-policy-url.com')}
+            >
+              •  Privacy  •
+            </Text>
+            <Text
+              style={styles.link}
+              onPress={() => openLink('https://your-privacy-policy-url.com')}
+            >
+              {'  '}Restore
+            </Text>
+          </View>
+
+        </View>
       </View>
     </View>
   );
