@@ -8,6 +8,8 @@ import PaRadioButton from '../../components/RadioButtons/PaRadioButton';
 import PaButton from '../../components/Buttons/PaButton';
 import PaFeaturesSlider from '../../components/Slider/PaFeaturesSlider/PaFeaturesSlider';
 import { Features } from '../../types/featuresTypes';
+import { ClosedIcon } from '../../utils/icons/Icons';
+import { colors } from '../../theme/colors';
 
 // Features Listesi dummy datası
 const features: Features[] = [
@@ -35,13 +37,17 @@ const ChooseMembershipScreen: React.FC<ChooseMembershipProps> = ({ navigation })
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/img/paywall/paywall.png')} 
+        source={require('../../assets/img/paywall/paywall.png')}
         style={styles.backgroundImage}
-        resizeMode="cover" 
+        resizeMode="cover"
       >
       </ImageBackground>
-
-
+      <TouchableOpacity
+        style={styles.closeBtn}
+        onPress={() => handleConfirm()}
+      >
+        <ClosedIcon width={10} height={9} fill={colors.white} />
+      </TouchableOpacity>
       <View style={styles.sliderContainer}>
         <View style={styles.sliderHeader}>
           <Text style={styles.title}>

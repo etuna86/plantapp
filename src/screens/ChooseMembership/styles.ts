@@ -60,5 +60,16 @@ export const styles = StyleSheet.create({
     display: 'flex',
     paddingHorizontal: standartPadding,
     height: onBoardingBottomHeight,
+  },
+  closeBtn: {
+    position: 'absolute',
+    height: 24,
+    width: 24,
+    backgroundColor: colors.closeBlack,
+    borderRadius: 24,
+    right: standartPadding,
+    top: 55,
+    justifyContent:'center',
+    alignItems:'center',
   }
 });

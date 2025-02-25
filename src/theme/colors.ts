@@ -21,6 +21,7 @@ export const colors = {
   termsText: 'rgba(89, 113, 101, 0.7)',
   borderColor025: ' rgba(60, 60, 67, 0.25)',
   grey: 'rgba(171, 171, 171, 1)',
+  closeBlack: 'rgba(0, 0, 0, 0.4)',
   orange: '#E4B046',
   orangeLight: '#E6C990',
   arrow:'rgba(208, 176, 112, 1)',
