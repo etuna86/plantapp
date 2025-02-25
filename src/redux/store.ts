@@ -7,6 +7,5 @@ export const store = configureStore({
   },
 });
 
-// Store tiplerini export ederek uygulama genelinde kullanabilirsiniz
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { colors } from '../../theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import { styles } from './styles';
 
 interface RadioButtonProps {
     labelTitle: string;
@@ -17,7 +18,7 @@ const PaRadioButton: React.FC<RadioButtonProps> = ({ labelTitle, labelDesc, sele
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <View style={[styles.radioButton, selected && styles.radioButtonActive]}>
                 <LinearGradient
-                    colors={[colors.primary0, colors.primary024]} // Gradyan renkleri (Turuncu Tonları)
+                    colors={[colors.primary0, colors.primary024]} // Gradyan renkleri
                     start={{ x: 0, y: 0 }} // Başlangıç noktası (Sol Üst)
                     end={{ x: 1, y: 1 }} // Bitiş noktası (Sağ Alt)
                     style={styles.gradient}
@@ -48,105 +49,3 @@ const PaRadioButton: React.FC<RadioButtonProps> = ({ labelTitle, labelDesc, sele
 
 export default PaRadioButton;
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        display: 'flex',
-        // marginVertical: 8,
-    },
-    radioButton: {
-        flex: 1,
-        display: 'flex',
-        marginVertical: 8,
-        flexDirection: 'row',
-        borderWidth: 2,
-        borderColor: colors.white03,
-        borderRadius: 14,
-        overflow: 'hidden',
-    },
-    radioButtonContainer: {
-        flexDirection: 'row',
-        display: 'flex',
-        alignItems: 'center',
-        padding: 16,
-        backgroundColor: colors.white01,
-        borderColor: colors.white03,
-    },
-    radioButtonActive: {
-        backgroundColor: 'transparent',
-        borderColor: colors.primary,
-    },
-    active: {
-
-    },
-    gradient: {
-        flex: 1, // Ekranın tamamını kaplasın
-        // justifyContent: 'center',
-        // alignItems: 'center',
-
-    },
-    outerCircle: {
-        width: 24,
-        height: 24,
-        backgroundColor: colors.white015,
-        borderRadius: 24,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 10,
-    },
-    outerCircleSelected: {
-        width: 24,
-        height: 24,
-        borderWidth: 8,
-        borderColor: colors.primary,
-        backgroundColor: colors.white,
-    },
-    innerCircle: {
-        width: 5,
-        height: 5,
-        backgroundColor: colors.white,
-        borderRadius: 5,
-    },
-    label: {
-
-    },
-    title: {
-        fontFamily: "Rubik-Medium",
-        fontWeight: 500,
-        fontSize: 16,
-        lineHeight: 18.96,
-        letterSpacing: 0,
-        color: colors.white,
-    },
-    desc: {
-        fontFamily: "Rubik-Light",
-        fontWeight: 300,
-        fontSize: 12,
-        lineHeight: 14.22,
-        letterSpacing: 0,
-        color: colors.white07,
-    },
-    saveStyle: {
-        position: 'absolute',
-        right: 0,
-        top: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderBottomLeftRadius: 14,
-        backgroundColor: colors.white03,
-        height: 26,
-        paddingHorizontal: 16,
-        overflow: 'hidden'
-    },
-    saveStyleText: {
-        fontFamily: "Rubik-Medium",
-        fontWeight: 500,
-        fontSize: 12,
-        lineHeight: 18,
-        letterSpacing: 0,
-        color: colors.white,
-    },
-    saveStyleActive: {
-        backgroundColor: colors.primary,
-    }
-});

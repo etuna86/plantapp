@@ -5,7 +5,7 @@ export interface Image {
     caption: string | null;
     width: number;
     height: number;
-    formats: any | null; // Eğer format bilgisi varsa, detaylandırabilirsin.
+    formats: any | null;
     hash: string;
     ext: string;
     mime: string;

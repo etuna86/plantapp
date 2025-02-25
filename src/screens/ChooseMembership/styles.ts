@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
   },
   bottom: {
     display: 'flex',
-    padding: standartPadding,
+    paddingHorizontal: standartPadding,
     height: onBoardingBottomHeight,
   }
 });

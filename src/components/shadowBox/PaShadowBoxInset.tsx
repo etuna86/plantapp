@@ -2,12 +2,10 @@ import React, { ReactNode } from 'react';
 import { View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-// 📌 **Props Tip Tanımı**
 interface PaShadowBoxInsetProps {
     children: ReactNode;
 }
 
-// 📌 **TypeScript uyumlu bileşen**
 const PaShadowBoxInset: React.FC<PaShadowBoxInsetProps> = ({ children }) => {
     return (
         <View style={styles.container}>
@@ -23,7 +21,6 @@ const PaShadowBoxInset: React.FC<PaShadowBoxInsetProps> = ({ children }) => {
 
 export default PaShadowBoxInset;
 
-// 📌 **Stiller**
 const styles = StyleSheet.create({
     container: {
         width: 65,

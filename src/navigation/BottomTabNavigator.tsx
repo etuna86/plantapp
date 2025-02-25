@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, GestureResponderEvent } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import LinearGradient from 'react-native-linear-gradient'; // 📌 Gölge için import edildi
+import LinearGradient from 'react-native-linear-gradient';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import DiagnoseScreen from '../screens/DiagnoseScreen/DiagnoseScreen';
 import MyGardenScreen from '../screens/MyGardenScreen/MyGardenScreen';
@@ -11,23 +11,27 @@ import { HomeIcon, DiagnoseIcon, MyGardenIcon, ProfileIcon, ScanIcon } from '../
 
 const EmptyScreen = () => <View />;
 
-
 type BottomTabParamList = {
   Home: undefined;
   Diagnose: undefined;
   MyGarden: undefined;
   Profile: undefined;
-  Empty: undefined; 
+  Empty: undefined;
 };
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
+const handleScanPress = (event: GestureResponderEvent) => {
+  console.log('Scan Butona tıklandı');
+};
 
 const CustomTabButton = ({ onPress }: { onPress?: (event: GestureResponderEvent) => void }) => {
   return (
     <TouchableOpacity
       style={styles.customButtonContainer}
-      onPress={(event) => { onPress?.(event); }} 
+      onPress={(event) => {
+        handleScanPress(event);
+      }}
       activeOpacity={0.7}
     >
       <LinearGradient
@@ -50,7 +54,8 @@ const BottomTabNavigator: React.FC = () => {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarStyle: styles.tabBarStyle, 
+        tabBarStyle: styles.tabBarStyle,
+        tabBarLabelStyle: styles.tabBarLabel,
         tabBarIcon: ({ focused, color }) => {
           const iconProps = { stroke: focused ? colors.primary : colors.greyTwo, fill: focused ? colors.primary : colors.greyTwo };
           switch (route.name) {
@@ -70,19 +75,34 @@ const BottomTabNavigator: React.FC = () => {
         tabBarInactiveTintColor: colors.greyTwo,
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Diagnose" component={DiagnoseScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ tabBarLabel: 'Home' }}
+      />
+      <Tab.Screen
+        name="Diagnose"
+        component={DiagnoseScreen}
+        options={{ tabBarLabel: 'Diagnose' }}
+      />
 
       <Tab.Screen
         name="Empty"
         component={EmptyScreen}
         options={{
-          tabBarButton: (props) => <CustomTabButton onPress={props.onPress} {...props} />,
+          tabBarButton: (props) => <CustomTabButton {...props} />,
         }}
       />
 
-      <Tab.Screen name="MyGarden" component={MyGardenScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen
+        name="MyGarden"
+        component={MyGardenScreen}
+        options={{ tabBarLabel: 'My Garden' }}
+      />
+      <Tab.Screen name="Profile"
+        component={ProfileScreen}
+        options={{ tabBarLabel: 'Profile' }}
+      />
     </Tab.Navigator>
   );
 };
@@ -91,11 +111,19 @@ export default BottomTabNavigator;
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    height: 70, 
+    height: 60,
     backgroundColor: colors.white,
   },
+  tabBarLabel: {
+    fontSize: 10,
+    fontWeight: 400,
+    textAlign: 'left',
+    fontFamily: "Rubik-Regular",
+    lineHeight: 11.85,
+    letterSpacing: -0.24,
+  },
   customButtonContainer: {
-    top: -24, 
+    top: -24,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -108,18 +136,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderColor: colors.primary2,
     borderWidth: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 4,
     overflow: 'hidden',
   },
   customButton: {
     width: 65,
     height: 65,
     borderRadius: 65 / 2,
-    backgroundColor: colors.primary, 
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },

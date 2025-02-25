@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, Dimensions, ScrollView, TouchableOpacity, Image, LayoutChangeEvent } from 'react-native';
+import { View, Text, ScrollView,Image, LayoutChangeEvent } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootStackParamList } from '../../navigation/types';
-import { width, onBoardingHeaderHeight, onBoardingImgHeight, onBoardingBottomHeight } from '../../utils/constants';
+import { width, } from '../../utils/constants';
 import PaButton from '../../components/Buttons/PaButton';
 import { styles } from './styles';
 
@@ -18,7 +17,7 @@ interface Slide {
   id: string;
   title: string;
   boldText: string;
-  img: any; // require() kullanıldığı için 'any' olarak tanımladık
+  img: any; 
 }
 
 const slides: Slide[] = [
@@ -41,9 +40,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
 
   const scrollRef = useRef<ScrollView>(null);
   const [underlineWidth, setUnderlineWidth] = useState(0);
-
-  // Kalın kelimeyi title'dan çıkararak parçaları ayıralım
-
+  const [height, setHeight] = useState(0);
 
   const onBoldTextLayout = (event: LayoutChangeEvent) => {
     setUnderlineWidth(event.nativeEvent.layout.width);
@@ -52,7 +49,6 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     if (currentSlideIndex < slides.length - 1) {
       scrollRef.current?.scrollTo({ x: width * (currentSlideIndex + 1), animated: true });
     } else {
-      // Son slide'dayız, ChooseMembership ekranına geçelim
       navigation.navigate('ChooseMembership');
     }
   };
@@ -87,7 +83,6 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
                     >
                       {slide.boldText}
                     </Text>
-                    {/* Alt çizgi tam olarak boldText kadar geniş olacak */}
                     <Image
                       source={require('../../assets/img/onboarding/brush.png')}
                       style={[styles.underline, { width: 150 }]}
@@ -110,7 +105,13 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
           )
         })}
       </ScrollView>
-      <View style={styles.bottom}>
+      <View style={styles.bottom}
+        onLayout={(event) => {
+          const { height } = event.nativeEvent.layout;
+          console.log('Bottom View Height:', height);
+          setHeight(height); 
+        }}
+      >
         <PaButton title='Continue' onPress={handleNextSlide} />
         <View style={styles.dotsContainer}>
           {slides.map((_, index) => (

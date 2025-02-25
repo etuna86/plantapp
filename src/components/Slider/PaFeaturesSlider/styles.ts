@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     listContainer: {
-        paddingLeft: standartPadding, // Soldan boşluk bırak
-        paddingRight: width * 0.3, // Sağ tarafa doğru genişleme efekti
+        paddingLeft: standartPadding, 
+        paddingRight: width * 0.3, 
     },
     featureItem: {
         backgroundColor: colors.white01,
@@ -19,17 +19,15 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         marginRight: 5,
-        width: ((width - (standartPadding * 2))) / 2 - 5, // Kategori genişliği
-        // width: width / 2, // Kategori genişliği
+        width: ((width - (standartPadding * 2))) / 2 - 5, 
+
         shadowColor: colors.black025,
         shadowOpacity: 0.25,
         shadowRadius: 5,
-        elevation: 5, // Android için gölge
-        // boxShadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
+        elevation: 5, 
     },
     selectedFeature: {
-        //backgroundColor: '#4CAF50', // Seçili kategori için farklı renk
+
     },
     featureImage: {
         width: 36,

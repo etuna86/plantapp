@@ -3,17 +3,17 @@ import { View, StyleSheet, TextStyle } from 'react-native';
 import Svg, { Text, Defs, LinearGradient, Stop } from 'react-native-svg';
 
 interface GradientTextProps {
-    text: string; // 📌 Gradient uygulanacak metin
-    colors?: string[]; // 📌 Gradient renkleri (varsayılan: ["blue", "green"])
-    style?: TextStyle; // 📌 Kullanıcı tarafından özelleştirilebilecek stiller
+    text: string; 
+    colors?: string[]; 
+    style?: TextStyle; 
 }
 
 const GradientText: React.FC<GradientTextProps> = ({ text, colors = ["blue", "green"], style }) => {
 
 
     const fontSize = style?.fontSize || 10;
-    const height = style?.height || 10; // Varsayılan yükseklik (Fontun 1.5 katı)
-    const yPosition = height || 10; // Metni ta
+    const height = style?.height || 10; 
+    const yPosition = height || 10; 
     return (
         <View style={styles.container}>
             <Svg height={style?.fontSize ? style.fontSize * 2 : 100} width="250">
@@ -26,7 +26,6 @@ const GradientText: React.FC<GradientTextProps> = ({ text, colors = ["blue", "gr
                 <Text
                     x="10"
                     y={19}
-                    // y={style?.fontSize ? style.fontSize : 50}
                     fontSize={style?.fontSize ? style.fontSize : 40}
                     fontWeight={style?.fontWeight ? style.fontWeight.toString() : "bold"}
                     fill="url(#grad)"

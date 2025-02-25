@@ -23,8 +23,7 @@ const userSlice = createSlice({
   },
 });
 
-// Actions
+
 export const { setUserName, setUserAge } = userSlice.actions;
 
-// Reducer
 export default userSlice.reducer;

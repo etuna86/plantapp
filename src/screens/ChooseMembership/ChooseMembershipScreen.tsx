@@ -29,19 +29,16 @@ const ChooseMembershipScreen: React.FC<ChooseMembershipProps> = ({ navigation })
   const [plan, setPlan] = useState<'monthly' | 'yearly' | null>('monthly');
 
   const handleConfirm = () => {
-    // Seçili planı kaydedebilir veya global state'e atabilirsiniz.
-    // Şimdilik direkt BottomTabs'e geçiş yapıyoruz.
     navigation.navigate('BottomTabs');
   };
 
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/img/paywall/paywall.png')} // Görsel yolunu doğru ayarla
+        source={require('../../assets/img/paywall/paywall.png')} 
         style={styles.backgroundImage}
-        resizeMode="cover" // İçeriği kapsayacak şekilde ayarlar
+        resizeMode="cover" 
       >
-        {/* Buraya içerik eklenebilir */}
       </ImageBackground>
 
 

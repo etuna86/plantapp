@@ -7,9 +7,9 @@ export const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: '100%', // Ekranın %90'ı genişlikte
-        backgroundColor: colors.white088, // Arkaplan rengi
-        borderRadius: 10, // Köşeleri yuvarla
+        width: '100%', 
+        backgroundColor: colors.white088, 
+        borderRadius: 10, 
         borderWidth: 0.2,
         borderColor: colors.borderColor025,
         paddingHorizontal: 16,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         marginRight: 10,
     },
     input: {
-        flex: 1, // Genişliği tam olarak doldur
+        flex: 1, 
         fontSize: 16,
         color: colors.black,
     },

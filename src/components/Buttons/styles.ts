@@ -5,17 +5,17 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
     paddingVertical: 12,
-    // paddingHorizontal: 16,
     borderRadius: 8,
     width:'100%',
-    display:'flex'
+    display:'flex',
+    height:56,
+    alignItems:'center',
+    justifyContent:'center',
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
     fontFamily: 'Rubik-Regular',
-    //fontFamily: 'Rubik-Black',
-    //fontFamily: 'Rubik-SemiBold',
   },
 });

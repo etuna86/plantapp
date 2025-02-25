@@ -4,7 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/types';
 import { styles } from './styles';
 import PaButton from '../../components/Buttons/PaButton';
-import { width } from '../../utils/constants';
+import { onBoardingBottomHeight, width } from '../../utils/constants';
 
 type StartScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Start'>;
 interface StartScreenProps {
@@ -43,7 +43,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
           <Image
             source={require('../../assets/img/started/started.png')}
             style={styles.slideImg}
-            resizeMode="cover"
+            resizeMode="contain"
           />
         </View>
       </View>

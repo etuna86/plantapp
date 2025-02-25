@@ -25,6 +25,9 @@ export const styles = StyleSheet.create({
   bottom: {
     height: onBoardingBottomHeight,
     paddingHorizontal: standartPadding,
+    position:'absolute',
+    bottom:0,
+    width:'100%',
   },
   slide: {
     justifyContent: 'center',
@@ -64,6 +67,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   termsContainer: {
+    // marginTop:3,
     padding: 16,
     alignItems: 'center',
     justifyContent: 'center',
@@ -75,7 +79,8 @@ export const styles = StyleSheet.create({
     fontFamily: "Rubik-Regular",
     lineHeight: 15,
     letterSpacing: 0.07,
-    color: colors.termsText
+    color: colors.termsText,
+    width:'70%'
   },
   link: {
     textDecorationLine: 'underline',

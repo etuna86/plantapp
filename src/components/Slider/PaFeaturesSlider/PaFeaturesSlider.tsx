@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { styles } from './styles';
-import { Features } from '../../../types/featuresTypes'; // Features tipini içe aktar
+import { Features } from '../../../types/featuresTypes'; 
 
-
-// 📌 Props Tipi Tanımla
 interface PaSliderProps {
   features: Features[];
 }
@@ -14,10 +12,6 @@ const PaFeaturesSlider: React.FC<PaSliderProps> = ({ features }) => {
   const [feature, setFeature] = useState<Features[]>([...features, ...features]);
   const flatListRef = useRef<FlatList<Features>>(null);
 
-  // 📌 Sonsuz döngü için veriyi iki kez çoğalt
-  const loopedFeatures = [...features, ...features];
-
-  // 📌 Liste sonuna gelince başa dön
   const handleScrollEnd = () => {
     setFeature((prev) => [...prev, ...features]);
   };

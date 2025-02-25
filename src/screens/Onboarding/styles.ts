@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems:'center',
-    padding: 16,
+    paddingVertical: 16,
     height: 10,
     marginTop:16,
   },
