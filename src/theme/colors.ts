@@ -24,5 +24,6 @@ export const colors = {
   orangeLight: '#E6C990',
   arrow:'rgba(208, 176, 112, 1)',
   premiumBg: 'rgba(36, 32, 26, 1)',
+  greyTwo: 'rgba(189, 189, 189, 1)',
   text: '#000000',
 };
